@@ -10,6 +10,21 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
+const Vuetify = createVuetify({
+    components,
+    directives,
+    theme: {
+        defaultTheme: 'custom',
+        themes: {
+            custom: {
+                colors: {
+                    primary: '#000'
+                }
+            }
+        }
+    }
+  })
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
@@ -18,10 +33,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
-            .use(createVuetify({
-                components,
-                directives,
-              }))
+            .use(Vuetify)
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },

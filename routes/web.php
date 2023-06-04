@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +22,7 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-require __DIR__.'/auth.php';
+Route::prefix('/auth')->group(function () {
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+});
