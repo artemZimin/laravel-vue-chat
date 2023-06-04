@@ -1,6 +1,10 @@
 import './bootstrap';
 import '../css/app.css';
-
+import '@mdi/font/css/materialdesignicons.css';
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 import { createApp, h, DefineComponent } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -14,6 +18,10 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(createVuetify({
+                components,
+                directives,
+              }))
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },
