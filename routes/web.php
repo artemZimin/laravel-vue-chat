@@ -16,5 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return \Inertia\Inertia::render('Index');
+    return \Inertia\Inertia::render('Chats');
+});
+
+Route::get('/register', function () {
+    return \Inertia\Inertia::render('Register');
+});
+
+Route::get('/login', function () {
+    return \Inertia\Inertia::render('Login');
+});
+
+Route::get('/chat/{id}', function () {
+    return \Inertia\Inertia::render('Chat');
+});
+
+Route::get('/profile/{id}', function () {
+    return \Inertia\Inertia::render('Profile');
 });
