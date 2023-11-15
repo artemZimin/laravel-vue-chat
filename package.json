@@ -12,7 +12,9 @@
     },
     "dependencies": {
         "@inertiajs/vue3": "^1.0.14",
+        "@mdi/font": "^7.3.67",
         "@vitejs/plugin-vue": "^4.4.1",
-        "vue": "^3.3.8"
+        "vue": "^3.3.8",
+        "vuetify": "^3.4.1"
     }
 }

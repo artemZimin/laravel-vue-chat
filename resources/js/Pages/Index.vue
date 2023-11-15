@@ -5,7 +5,9 @@ const text = ref('Hello world');
 </script>
 
 <template>
-<h1>Hello world!</h1>
+    <v-btn>
+        Button
+    </v-btn>
 </template>
 
 <style scoped>
