@@ -1,18 +1,15 @@
 <script setup>
 
+import AuthLayout from "../Layouts/AuthLayout.vue";
 </script>
 
 <template>
-    <v-container>
-        <v-row>
-            <v-col offset-md="2" md="8" offset-lg="3" lg="6">
-                <h2 class="text-h2 mb-3">Login</h2>
-                <v-text-field label="Nickname" />
-                <v-text-field type="password" label="Password" />
-                <v-btn color="primary">Login</v-btn>
-            </v-col>
-        </v-row>
-    </v-container>
+    <auth-layout>
+        <h2 class="text-h2 mb-3">Login</h2>
+        <v-text-field label="Nickname" />
+        <v-text-field type="password" label="Password" />
+        <v-btn color="primary">Login</v-btn>
+    </auth-layout>
 </template>
 
 <style scoped>

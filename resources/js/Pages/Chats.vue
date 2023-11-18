@@ -1,5 +1,7 @@
 <script setup>
 import {onMounted, ref} from "vue";
+import MainLayout from "../Layouts/MainLayout.vue";
+import ChatListItemComponent from "../Components/ChatListItemComponent.vue";
 
 const $chatSearchElement = ref(null)
 const chatsHeight = ref(null)
@@ -14,43 +16,28 @@ onMounted(setChatsHeight)
 </script>
 
 <template>
-    <v-app theme="dark">
-        <v-app-bar title="Messenger" :elevation="2">
-            <template v-slot:append>
-                <v-btn icon="mdi-brightness-7"></v-btn>
-                <v-btn icon="mdi-account"></v-btn>
-            </template>
-        </v-app-bar>
-        <v-main>
-            <v-container>
-                <v-row>
-                    <v-col offset-md="2" md="8" offset-lg="3" lg="6">
-                        <h1 class="text-h3 mb-2">Chats</h1>
-                        <v-text-field
-                            variant="outlined"
-                            label="Search chats"
-                        />
-                        <div ref="$chatSearchElement"></div>
-                        <v-card>
-                            <v-infinite-scroll v-if="chatsHeight" :height="chatsHeight" :on-load="null">
-                                <v-list>
-                                    <v-list-item
-                                        v-for="item in 100"
-                                        prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-                                        title="John Leider"
-                                        :append-icon="item % 2 ? 'mdi-account-badge' : null"
-                                        subtitle="Hello, how are you?"
-                                        :value="item"
-                                    >
-                                    </v-list-item>
-                                </v-list>
-                            </v-infinite-scroll>
-                        </v-card>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-main>
-    </v-app>
+    <main-layout>
+        <h1 class="text-h3 mb-2">Chats</h1>
+        <v-text-field
+            variant="outlined"
+            label="Search chats"
+        />
+        <div ref="$chatSearchElement"></div>
+        <v-card>
+            <v-infinite-scroll v-if="chatsHeight" :height="Number(chatsHeight)" :on-load="null">
+                <v-list>
+                    <chat-list-item-component
+                        v-for="item in 100"
+                        avatar="https://cdn.vuetifyjs.com/images/john.png"
+                        last-message="Hello, how are you?"
+                        :online="item % 3 === 0"
+                        nickname="John Leider"
+                        :value="item"
+                    />
+                </v-list>
+            </v-infinite-scroll>
+        </v-card>
+    </main-layout>
 </template>
 
 <style scoped>
