@@ -11,7 +11,7 @@ import UserIndicatorComponent from "../Components/UserIndicatorComponent.vue";
         <v-infinite-scroll side="start">
             <message-component
                 v-for="key of 20"
-                :title="'Message ' + key"
+                :message="'Message ' + key"
                 :time="Date.now()"
                 :incoming="key % 3 === 0"
             />

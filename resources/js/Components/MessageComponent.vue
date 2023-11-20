@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps({
     incoming: Boolean,
-    title: String,
+    message: String,
     time: Number
 })
 </script>
@@ -12,7 +12,7 @@ const props = defineProps({
             variant="tonal"
             width="60%"
             :color="props.incoming ? 'primary' : null"
-            :title="props.title"
+            :text="props.message"
             :subtitle="(new Date(props.time)).toLocaleString()"
         />
     </div>
