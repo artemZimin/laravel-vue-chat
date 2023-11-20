@@ -14,8 +14,17 @@ import MainLayout from "../Layouts/MainLayout.vue";
             </v-avatar>
         </div>
         <v-file-input label="Set new avatar" variant="outlined" />
-        <v-text-field label="Nickname" />
-        <v-btn size="large">Save</v-btn>
+        <div class="mb-3">
+            <h2 class="text-h5 mb-2">Change nickname</h2>
+            <v-text-field label="Nickname" />
+            <v-btn size="large">Save</v-btn>
+        </div>
+        <div>
+            <h2 class="text-h5 mb-2">Change password</h2>
+            <v-text-field label="Old password" />
+            <v-text-field label="New password" />
+            <v-btn size="large">Save</v-btn>
+        </div>
     </main-layout>
 </template>
 
