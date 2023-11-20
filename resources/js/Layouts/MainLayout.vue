@@ -10,6 +10,9 @@ import HeaderComponent from "../Components/HeaderComponent.vue";
             <header-component />
         </template>
         <slot/>
+        <template v-slot:footer>
+            <slot name="footer" />
+        </template>
     </core-layout>
 </template>
 

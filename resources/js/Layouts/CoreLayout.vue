@@ -14,6 +14,7 @@
                 </v-row>
             </v-container>
         </v-main>
+        <slot name="footer" />
     </v-app>
 </template>
 
