@@ -2,6 +2,7 @@ import './bootstrap';
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
+import { createPinia } from 'pinia'
 
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -14,6 +15,8 @@ const vuetify = createVuetify({
     directives
 })
 
+const pinia = createPinia()
+
 createInertiaApp({
     id: 'app',
     resolve: name => {
@@ -24,6 +27,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(vuetify)
+            .use(pinia)
             .mount(el)
     },
 })
