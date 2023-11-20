@@ -1,5 +1,12 @@
 <script setup>
 import { Link as InertiaLink } from "@inertiajs/vue3";
+import { useThemeStore } from "../Store/themeStore.js";
+
+const themeStore = useThemeStore()
+
+const toggleTheme = () => {
+    themeStore.toggleTheme()
+}
 </script>
 
 <template>
@@ -10,7 +17,7 @@ import { Link as InertiaLink } from "@inertiajs/vue3";
             </inertia-link>
         </template>
         <template v-slot:append>
-            <v-btn icon="mdi-brightness-7"></v-btn>
+            <v-btn icon="mdi-brightness-7" @click="toggleTheme" />
             <inertia-link href="/profile/1" as="div">
                 <v-btn icon="mdi-account"></v-btn>
             </inertia-link>

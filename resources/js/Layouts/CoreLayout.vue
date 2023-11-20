@@ -1,9 +1,11 @@
 <script setup>
+import { useThemeStore } from "../Store/themeStore.js";
 
+const themeStore = useThemeStore()
 </script>
 
 <template>
-    <v-app theme="dark">
+    <v-app :theme="themeStore.theme">
         <slot name="header"></slot>
         <v-main>
             <v-container>
