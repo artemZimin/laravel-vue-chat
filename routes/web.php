@@ -31,6 +31,10 @@ Route::get('/chat/{id}', function () {
     return \Inertia\Inertia::render('Chat');
 });
 
+Route::get('/chats', function () {
+    return \Inertia\Inertia::render('Chats');
+});
+
 Route::get('/profile/{id}', function () {
     return \Inertia\Inertia::render('Profile');
 });
